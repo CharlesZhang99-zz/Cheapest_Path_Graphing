@@ -4,20 +4,23 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.Comparator;
+
 
 public class Read {
+	
 	
 	public String allCities[][] = new String[32][3];
 	//public String cityInfo[][] = new String[32];
 	public String lines[] = new String[52];
 	public String connections[][] = new String[52][2];
+	public float mcdonalds[][] = new float[13912][2];
 
 
 	
 	public Read() throws FileNotFoundException{
 		Scanner input = new Scanner(new File("data/connectedCities.txt")).useDelimiter("\\s*\n\\s*");
 		Scanner USCities = new Scanner(new File("data/USCities.csv")).useDelimiter("\\s*\n\\s*");
-
 		int counter = 0;
 		while (input.hasNext()) {
 			String[] tokens = input.nextLine().split(", ");
@@ -35,6 +38,33 @@ public class Read {
 			allCities[counter][2] = tokens[5];
 			counter++;
 		}
+		
+		readRest();
+		sortRestLong();
+		for (int i = 0; i < mcdonalds.length; i++) {
+			System.out.println(mcdonalds[i][0]);
+		}
+		//System.out.println(mcdonalds[mcdonalds.length-1][0]);
+	}
+	
+	public void readRest() throws FileNotFoundException {
+		Scanner mcdonaldsIn = new Scanner(new File("data/mcdonalds.csv")).useDelimiter("\\s*\n\\s*");
+		int counter = 0;
+		mcdonaldsIn.nextLine();
+		
+		while (mcdonaldsIn.hasNext()) {
+			String[] tokens = mcdonaldsIn.nextLine().split(",");
+			//float lo = Float.valueOf(tokens[0]);
+			mcdonalds[counter][0] = Float.valueOf(tokens[0]);
+			mcdonalds[counter][1] = Float.valueOf(tokens[1]);
+			//System.out.println(mcdonalds[counter][0]);
+			counter++;
+
+		}
+	}
+	
+	public void sortRestLong() {
+		Arrays.sort(mcdonalds, (a, b) -> Double.compare(a[0], b[0]));
 	}
 	
 	public void printCitiestxt() {
