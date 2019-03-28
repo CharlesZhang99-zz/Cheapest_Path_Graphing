@@ -15,27 +15,34 @@ public class Experiment {
 	public static void main(String[] args) {
 		try {
 			Read read = new Read();
+			
 			/*
 			read.printCitiestxt();
-			read.filterAllCities();
-			read.printAllCities();
-			System.out.println(read.cityToNum("Denver"));
-			System.out.println(read.numToCity(19));
+			System.out.println(read.cityToNum("DENVER"));
+			System.out.println(read.numToCity(12));
+			
 			*/
-	
+			read.printCitiestxt();
+			read.printAllCities();
 			Digraph digraph = new Digraph(32);
 					
 			for (int i = 0; i < read.connections.length; i++) {			
 				digraph.addEdge(read.cityToNum(read.connections[i][0]), 
 						read.cityToNum(read.connections[i][1]));		
 			}
-			
-			read.printAllCities();
-		
+					
 			System.out.println(digraph.toString());
-		
-		
 
+			DepthFirstDirectedPaths depthFirst = 
+					new DepthFirstDirectedPaths(digraph, 0);
+
+			System.out.println(depthFirst.hasPathTo(21));
+			System.out.println(depthFirst.pathTo(21));
+			
+			BreadthFirstDirectedPaths breadthFirst = 
+					new BreadthFirstDirectedPaths(digraph, 0);
+			System.out.println(breadthFirst.hasPathTo(21));
+			System.out.println(breadthFirst.pathTo(21));
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

@@ -7,7 +7,8 @@ import java.util.Scanner;
 
 public class Read {
 	
-	public String allCities[] = new String[32];
+	public String allCities[][] = new String[32][3];
+	//public String cityInfo[][] = new String[32];
 	public String lines[] = new String[52];
 	public String connections[][] = new String[52][2];
 
@@ -15,13 +16,25 @@ public class Read {
 	
 	public Read() throws FileNotFoundException{
 		Scanner input = new Scanner(new File("data/connectedCities.txt")).useDelimiter("\\s*\n\\s*");
+		Scanner USCities = new Scanner(new File("data/USCities.csv")).useDelimiter("\\s*\n\\s*");
+
 		int counter = 0;
 		while (input.hasNext()) {
 			String[] tokens = input.nextLine().split(", ");
 			connections[counter] = tokens;
 			counter++;
 		}
-		filterAllCities();
+		
+		counter = 0;
+		USCities.nextLine();
+		while (USCities.hasNext()) {
+			String[] tokens = USCities.nextLine().split(",");
+			//System.out.println(tokens[3]);
+			allCities[counter][0] = tokens[3];
+			allCities[counter][1] = tokens[4];
+			allCities[counter][2] = tokens[5];
+			counter++;
+		}
 	}
 	
 	public void printCitiestxt() {
@@ -32,6 +45,7 @@ public class Read {
 	
 	//puts all cities exactly once in a an array allCities
 	//this will eliminate hashing for graphing
+	/*
 	public void filterAllCities() {
 		int counter = 0;
 
@@ -53,19 +67,21 @@ public class Read {
 			}
 		}
 	}
+	*/
 	
 	public void printAllCities() {
 		for (int i = 0; i < allCities.length; i++) {
 			System.out.print(i);
 			System.out.print(": ");
-			System.out.println(allCities[i]);	
+			System.out.println(allCities[i][0]);	
 		}
 	}
 	
 	//given a city, it will return the number associated with it
 	public int cityToNum(String city) {
+		city = city.toUpperCase();
 		for (int i = 0; i < allCities.length; i++) {
-			if (city.equals(allCities[i])) {
+			if (city.equals(allCities[i][0])) {
 				return i;
 			}
 		}
@@ -74,7 +90,7 @@ public class Read {
 	
 	//given a city, it will return the number associated with it
 	public String numToCity(int num) {
-		return allCities[num];
+		return allCities[num][0];
 	}
 
 	public static void main(String[] args) {
