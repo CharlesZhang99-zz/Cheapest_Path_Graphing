@@ -44,6 +44,7 @@ public class Experiment {
 			System.out.println(breadthFirst.hasPathTo(21));
 			System.out.println(breadthFirst.pathTo(21));
 
+			CityRestaurants cityrest = new CityRestaurants();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
