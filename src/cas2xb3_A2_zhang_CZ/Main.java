@@ -28,6 +28,7 @@ public class Main {
 		
 		DijkstraSP sPath = new DijkstraSP(weightedDg, 0);
 		System.out.println(sPath.pathTo(21));
+		System.out.println(sPath.distTo(21));
 	}
 
 }
