@@ -13,7 +13,7 @@ public class CityRestaurants extends Read{
 		// TODO Auto-generated constructor stub
 		
 		allCities();
-		printCityRests();
+		//printCityRests();
 		sortRestPrice();
 	}
 	

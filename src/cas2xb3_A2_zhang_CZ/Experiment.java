@@ -53,6 +53,10 @@ public class Experiment {
 			//System.out.println(CustomBinarySearch.start((float) -94.061849, ls));
 			//System.out.println(DumbSeqSearch.find(8, ls));
 			
+			String pricesforLucia [][] = cityrest.availableMenu(0);
+			for (int i = 0; i < 6; i++) {
+				System.out.println(pricesforLucia[i][0]);
+			}
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

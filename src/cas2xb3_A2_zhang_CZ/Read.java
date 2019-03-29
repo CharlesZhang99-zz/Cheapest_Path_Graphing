@@ -28,7 +28,6 @@ public class Read {
 		readRest();
 		sortRestLong();
 		readMenu();
-		System.out.println(mcdonalds[0][0]);
 	}
 	public void readConnections() throws FileNotFoundException {
 		Scanner input = new Scanner(new File("data/connectedCities.txt")).useDelimiter("\\s*\n\\s*");
