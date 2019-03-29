@@ -13,7 +13,7 @@ public class Read {
 	protected String cityInfo[][] = new String[32][3];
 	protected String lines[] = new String[52];
 	protected String connections[][] = new String[52][2];
-	protected float mcdonalds[][] = new float[13912][2];
+	public float mcdonalds[][] = new float[13912][2];
 	protected float burgerking[][] = new float[7085][2];
 	protected float wendys[][] = new float[5879][2];
 	protected String menuComplete[][] = new String[41][4];
@@ -28,7 +28,7 @@ public class Read {
 		readRest();
 		sortRestLong();
 		readMenu();
-		
+		System.out.println(mcdonalds[0][0]);
 	}
 	public void readConnections() throws FileNotFoundException {
 		Scanner input = new Scanner(new File("data/connectedCities.txt")).useDelimiter("\\s*\n\\s*");

@@ -45,6 +45,10 @@ public class Experiment {
 			System.out.println(breadthFirst.pathTo(21));
 
 			CityRestaurants cityrest = new CityRestaurants();
+			//float ls[][] = {{1,1}, {3,1}, {5,1}, {7, 1}, {10,1}};
+			
+			//System.out.println(CustomBinarySearch.start((float) 2, ls));
+			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

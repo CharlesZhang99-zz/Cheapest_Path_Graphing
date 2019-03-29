@@ -11,6 +11,14 @@ public class CityRestaurants extends Read{
 		System.out.println(cityInfo[0][0]);
 	}
 	
+	public void RestInCity(String[] cInfo){
+		float cityLong = Float.valueOf(cInfo[3]);
+		float cityLat = Float.valueOf(cInfo[2]);
+		boolean inRadius = true;
+		while (inRadius) {
+			
+		}
+	}
 	
 
 }
