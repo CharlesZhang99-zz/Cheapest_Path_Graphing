@@ -23,9 +23,9 @@ package cas2xb3_A2_zhang_CZ;
  */
 
 public class DirectedEdge { 
-    private final int v;
-    private final int w;
-    private final double weight;
+    private int v;
+    private int w;
+    private double weight;
 
     /**
      * Initializes a directed edge from vertex {@code v} to vertex {@code w} with
@@ -53,6 +53,10 @@ public class DirectedEdge {
     public int from() {
         return v;
     }
+    
+    public void setFrom(int from) {
+    	this.v = from;
+    }
 
     /**
      * Returns the head vertex of the directed edge.
@@ -61,7 +65,9 @@ public class DirectedEdge {
     public int to() {
         return w;
     }
-
+    public void setTo(int to) {
+    	this.w = to;
+    }
     /**
      * Returns the weight of the directed edge.
      * @return the weight of the directed edge
@@ -69,7 +75,9 @@ public class DirectedEdge {
     public double weight() {
         return weight;
     }
-
+    public void setWeight(double weight) {
+    	this.weight = weight;
+    }
     /**
      * Returns a string representation of the directed edge.
      * @return a string representation of the directed edge

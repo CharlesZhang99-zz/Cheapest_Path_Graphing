@@ -1,5 +1,7 @@
 package cas2xb3_A2_zhang_CZ;
 
+import java.io.FileNotFoundException;
+
 import ADTs.IndexMinPQ;
 import ADTs.Stack;
 
@@ -59,6 +61,7 @@ public class DijkstraSP {
     private double[] distTo;          // distTo[v] = distance  of shortest s->v path
     private DirectedEdge[] edgeTo;    // edgeTo[v] = last edge on shortest s->v path
     private IndexMinPQ<Double> pq;    // priority queue of vertices
+    private double distance;
 
     /**
      * Computes a shortest-paths tree from the source vertex {@code s} to every other
@@ -90,6 +93,8 @@ public class DijkstraSP {
         while (!pq.isEmpty()) {
             int v = pq.delMin();
             for (DirectedEdge e : G.adj(v))
+            	//MODIFTY HERE
+            	//if (e.weight() != e.from())
                 relax(e);
         }
 
@@ -113,11 +118,15 @@ public class DijkstraSP {
      * @param  v the destination vertex
      * @return the length of a shortest path from the source vertex {@code s} to vertex {@code v};
      *         {@code Double.POSITIVE_INFINITY} if no such path
+     * @throws FileNotFoundException 
      * @throws IllegalArgumentException unless {@code 0 <= v < V}
      */
-    public double distTo(int v) {
+    public double distTo(int v) throws FileNotFoundException {
         validateVertex(v);
-        return distTo[v];
+        //return distTo[v];
+        pathTo(v);
+		return distance;
+        
     }
 
     /**
@@ -139,14 +148,37 @@ public class DijkstraSP {
      * @param  v the destination vertex
      * @return a shortest path from the source vertex {@code s} to vertex {@code v}
      *         as an iterable of edges, and {@code null} if no such path
+     * @throws FileNotFoundException 
      * @throws IllegalArgumentException unless {@code 0 <= v < V}
      */
-    public Iterable<DirectedEdge> pathTo(int v) {
+    public Iterable<DirectedEdge> pathTo(int v) throws FileNotFoundException {
+    	distance = 0;
         validateVertex(v);
         if (!hasPathTo(v)) return null;
         Stack<DirectedEdge> path = new Stack<DirectedEdge>();
+        //MODIFIED NEXT LINE
+        DirectedEdge prev = new DirectedEdge(0,0,0);
         for (DirectedEdge e = edgeTo[v]; e != null; e = edgeTo[e.from()]) {
-            path.push(e);
+        	//MODIFIED HERE
+        	if (e.weight() != prev.weight()) {
+        		path.push(e);
+        	}
+        	else {
+        		CityRestaurants rt = new CityRestaurants();
+        		String dollarMenu[][] = rt.availableMenu(e.to());
+        		if(Double.valueOf(dollarMenu[0][0]) != e.weight()) {
+        			e.setWeight(Double.valueOf(dollarMenu[0][0]));
+        		}
+        		else{
+        			e.setWeight(Double.valueOf(dollarMenu[1][0]));
+        		}
+        		//e.setWeight(4.38);
+        		path.push(e);
+        	}
+        	prev = e;
+        	distance = distance + e.weight();
+        	//END MODIFY HERE
+            //path.push(e);
         }
         return path;
     }

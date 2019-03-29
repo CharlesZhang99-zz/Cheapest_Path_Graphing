@@ -27,7 +27,9 @@ public class Main {
 		System.out.println(weightedDg.toString());
 		
 		DijkstraSP sPath = new DijkstraSP(weightedDg, 0);
+		System.out.print("Path: ");
 		System.out.println(sPath.pathTo(21));
+		System.out.print("Path Cost: $");
 		System.out.println(sPath.distTo(21));
 	}
 
