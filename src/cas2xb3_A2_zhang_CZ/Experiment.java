@@ -45,9 +45,14 @@ public class Experiment {
 			System.out.println(breadthFirst.pathTo(21));
 
 			CityRestaurants cityrest = new CityRestaurants();
-			//float ls[][] = {{1,1}, {3,1}, {5,1}, {7, 1}, {10,1}};
+			cityrest.restInCity(read.cityInfo[0]);
+			//String cityarr[] = read.cityInfo[0];
+			//System.out.println(cityarr[0]);
+			float ls[][] = {{1,1}, {3,1}, {5,1}, {7, 1}, {10,1}};
 			
-			//System.out.println(CustomBinarySearch.start((float) 2, ls));
+			//System.out.println(CustomBinarySearch.start((float) -94.061849, ls));
+			//System.out.println(DumbSeqSearch.find(8, ls));
+			
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

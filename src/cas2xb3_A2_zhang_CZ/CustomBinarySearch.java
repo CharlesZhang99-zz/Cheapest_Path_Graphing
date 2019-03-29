@@ -21,8 +21,8 @@ public class CustomBinarySearch {
             else if (key > arr[mid]) {
             	lo = mid + 1;
             }
-            else return mid; 
+            else return mid-1; 
         }
-        return mid + 1;
+        return mid;
 	}
 }

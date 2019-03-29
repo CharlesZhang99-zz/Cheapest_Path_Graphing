@@ -17,9 +17,9 @@ public class Read {
 	protected float burgerking[][] = new float[7085][2];
 	protected float wendys[][] = new float[5879][2];
 	protected String menuComplete[][] = new String[41][4];
-	protected String menuMcdonalds[][] = new String[18][2];
-	protected String menuBurgerking[][] = new String[12][2];
-	protected String menuWendys[][] = new String[10][2];
+	protected String menuMcdonalds[][] = new String[18][3];
+	protected String menuBurgerking[][] = new String[12][3];
+	protected String menuWendys[][] = new String[10][3];
 
 	
 	public Read() throws FileNotFoundException{
@@ -103,12 +103,14 @@ public class Read {
 		for (int i = 0; i < 18; i++) {
 			menuMcdonalds[i][0] = menuComplete[i][2].replace("$", "");
 			menuMcdonalds[i][1] = menuComplete[i][1];
+			menuMcdonalds[i][2] = "McDonalds";
 		}
 		
 		int counter = 0;
 		for (int i = 18; i < 30; i++) {
 			menuBurgerking[counter][0] = menuComplete[i][2].replace("$", "");
 			menuBurgerking[counter][1] = menuComplete[i][1];
+			menuBurgerking[counter][2] = "BurgerKing";
 			counter++;
 		}
 		
@@ -116,6 +118,7 @@ public class Read {
 		for (int i = 30; i < 40; i++) {
 			menuWendys[counter][0] = menuComplete[i][2].replace("$", "");
 			menuWendys[counter][1] = menuComplete[i][1];
+			menuWendys[counter][2] = "Wendys";
 			counter++;
 		}
 		
