@@ -1,4 +1,4 @@
-package cas2xb3_A2_zhang_CZ;
+package Graphing;
 
 /******************************************************************************
  *  Compilation:  javac EdgeWeightedDigraph.java
@@ -36,6 +36,7 @@ package cas2xb3_A2_zhang_CZ;
  *  @author Kevin Wayne
  */
 import ADTs.Bag;
+import ADTs.DirectedEdge;
 import ADTs.Stack;
 
 public class EdgeWeightedDigraph {

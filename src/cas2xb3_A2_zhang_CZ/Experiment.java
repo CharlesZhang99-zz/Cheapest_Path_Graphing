@@ -1,6 +1,11 @@
 package cas2xb3_A2_zhang_CZ;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+
+import Graphing.BreadthFirstDirectedPaths;
+import Graphing.DepthFirstDirectedPaths;
+import Graphing.Digraph;
 
 public class Experiment {
 	//given a city, it will return the number associated with it
@@ -43,20 +48,23 @@ public class Experiment {
 					new BreadthFirstDirectedPaths(digraph, 0);
 			System.out.println(breadthFirst.hasPathTo(21));
 			System.out.println(breadthFirst.pathTo(21));
-
-			CityRestaurants cityrest = new CityRestaurants();
-			cityrest.restInCity(read.cityInfo[0]);
-			//String cityarr[] = read.cityInfo[0];
-			//System.out.println(cityarr[0]);
-			float ls[][] = {{1,1}, {3,1}, {5,1}, {7, 1}, {10,1}};
-			
-			//System.out.println(CustomBinarySearch.start((float) -94.061849, ls));
-			//System.out.println(DumbSeqSearch.find(8, ls));
-			
-			String pricesforLucia [][] = cityrest.availableMenu(0);
-			for (int i = 0; i < 6; i++) {
-				System.out.println(pricesforLucia[i][0]);
+			Iterable<Integer> path = (breadthFirst.pathTo(21));
+			System.out.println(path.toString());
+			String pathstring[] = path.toString().split(" ");
+			for (int i = 0; i < pathstring.length; i++) {
+				System.out.println(pathstring[i]);
 			}
+			//ArrayList<Integer> path = (ArrayList<Integer>) (breadthFirst.pathTo(21));
+			//for (int i = 0; i < pat)
+//			CityRestaurants cityrest = new CityRestaurants();
+//			cityrest.restInCity(read.cityInfo[0]);
+//			String cityarr[] = read.cityInfo[0];
+//			System.out.println(cityarr[0]);
+//			float ls[][] = {{1,1}, {3,1}, {5,1}, {7, 1}, {10,1}};
+//			
+//			System.out.println(CustomBinarySearch.start((float) -94.061849, ls));
+//			System.out.println(DumbSeqSearch.find(8, ls));
+
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

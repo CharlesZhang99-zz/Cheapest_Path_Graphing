@@ -1,9 +1,11 @@
-package cas2xb3_A2_zhang_CZ;
+package Graphing;
 
 import java.io.FileNotFoundException;
 
+import ADTs.DirectedEdge;
 import ADTs.IndexMinPQ;
 import ADTs.Stack;
+import cas2xb3_A2_zhang_CZ.CityRestaurants;
 
 /******************************************************************************
  *  Compilation:  javac DijkstraSP.java
@@ -152,11 +154,11 @@ public class DijkstraSP {
      * @throws IllegalArgumentException unless {@code 0 <= v < V}
      */
     public Iterable<DirectedEdge> pathTo(int v) throws FileNotFoundException {
-    	distance = 0;
         validateVertex(v);
         if (!hasPathTo(v)) return null;
         Stack<DirectedEdge> path = new Stack<DirectedEdge>();
-        //MODIFIED NEXT LINE
+        //MODIFIED NEXT 2 LINES
+    	distance = 0;
         DirectedEdge prev = new DirectedEdge(0,0,0);
         for (DirectedEdge e = edgeTo[v]; e != null; e = edgeTo[e.from()]) {
         	//MODIFIED HERE
@@ -166,7 +168,7 @@ public class DijkstraSP {
         	else {
         		CityRestaurants rt = new CityRestaurants();
         		String dollarMenu[][] = rt.availableMenu(e.to());
-        		if(Double.valueOf(dollarMenu[0][0]) != e.weight()) {
+        		if(Double.valueOf(dollarMenu[0][0]) != prev.weight()) {
         			e.setWeight(Double.valueOf(dollarMenu[0][0]));
         		}
         		else{

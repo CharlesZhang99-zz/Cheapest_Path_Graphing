@@ -1,28 +1,19 @@
 package cas2xb3_A2_zhang_CZ;
 
-import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
 
 import ADTs.DirectedEdge;
 import Graphing.DijkstraSP;
 import Graphing.EdgeWeightedDigraph;
 
-public class Main {
+public class Temp {
 
 	public static void main(String[] args) throws FileNotFoundException {
+		// TODO Auto-generated method stub
+		EdgeWeightedDigraph weightedDg = new EdgeWeightedDigraph(32);
 		Read read = new Read();
 		read.printAllCities();
 		CityRestaurants rest = new CityRestaurants();
-		
-		//WRITE BFS
-		
-
-		
-		
-		//DIJKSTRA SETUP
-		EdgeWeightedDigraph weightedDg = new EdgeWeightedDigraph(32);
 		for (int i = 0; i < read.connections.length; i++) {			
 
 			int toCity = read.cityToNum(read.connections[i][1]);
@@ -37,14 +28,13 @@ public class Main {
 				}
 			}
 		}
-		BufferedWriter writer;
-		try {
-			writer = new BufferedWriter(new FileWriter("data/a2_out.txt", true));
-			writer.write("Hello World !!");
-		}
-		catch (IOException e) {
-			
-		}
-
+		System.out.println(weightedDg.toString());
+		
+		DijkstraSP sPath = new DijkstraSP(weightedDg, 0);
+		System.out.print("Path: ");
+		System.out.println(sPath.pathTo(21));
+		System.out.print("Path Cost: $");
+		System.out.println(sPath.distTo(21));
 	}
+
 }

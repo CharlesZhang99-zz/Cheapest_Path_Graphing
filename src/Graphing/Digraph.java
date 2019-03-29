@@ -1,4 +1,4 @@
-package cas2xb3_A2_zhang_CZ;
+package Graphing;
 
 import java.util.NoSuchElementException;
 
@@ -29,9 +29,9 @@ public class Digraph {
         this.V = V;
         this.E = 0;
         indegree = new int[V];
-        adj = (Bag<Integer>[]) new Bag[V];
+        setAdj((Bag<Integer>[]) new Bag[V]);
         for (int v = 0; v < V; v++) {
-            adj[v] = new Bag<Integer>();
+            getAdj()[v] = new Bag<Integer>();
         }
     }
 
@@ -49,11 +49,11 @@ public class Digraph {
         for (int v = 0; v < G.V(); v++) {
             // reverse so that adjacency list is in same order as original
             Stack<Integer> reverse = new Stack<Integer>();
-            for (int w : G.adj[v]) {
+            for (int w : G.getAdj()[v]) {
                 reverse.push(w);
             }
             for (int w : reverse) {
-                adj[v].add(w);
+                getAdj()[v].add(w);
             }
         }
     }
@@ -93,7 +93,7 @@ public class Digraph {
     public void addEdge(int v, int w) {
         validateVertex(v);
         validateVertex(w);
-        adj[v].add(w);
+        getAdj()[v].add(w);
         indegree[w]++;
         E++;
     }
@@ -107,7 +107,7 @@ public class Digraph {
      */
     public Iterable<Integer> adj(int v) {
         validateVertex(v);
-        return adj[v];
+        return getAdj()[v];
     }
 
     /**
@@ -120,7 +120,7 @@ public class Digraph {
      */
     public int outdegree(int v) {
         validateVertex(v);
-        return adj[v].size();
+        return getAdj()[v].size();
     }
 
     /**
@@ -162,12 +162,22 @@ public class Digraph {
         s.append(V + " vertices, " + E + " edges " + NEWLINE);
         for (int v = 0; v < V; v++) {
             s.append(String.format("%d: ", v));
-            for (int w : adj[v]) {
+            for (int w : getAdj()[v]) {
                 s.append(String.format("%d ", w));
             }
             s.append(NEWLINE);
         }
         return s.toString();
     }
+
+
+	public Bag<Integer>[] getAdj() {
+		return adj;
+	}
+
+
+	public void setAdj(Bag<Integer>[] adj) {
+		this.adj = adj;
+	}
 
 }

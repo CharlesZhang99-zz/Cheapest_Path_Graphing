@@ -1,4 +1,6 @@
-package cas2xb3_A2_zhang_CZ;
+package ADTs;
+
+import Graphing.EdgeWeightedDigraph;
 
 /******************************************************************************
  *  Compilation:  javac DirectedEdge.java

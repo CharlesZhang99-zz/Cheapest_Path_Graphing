@@ -1,4 +1,4 @@
-package cas2xb3_A2_zhang_CZ;
+package Graphing;
 import ADTs.Queue;
 /******************************************************************************
  *  Compilation:  javac BreadthFirstDirectedPaths.java
