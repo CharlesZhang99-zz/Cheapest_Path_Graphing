@@ -1,55 +1,12 @@
 package Graphing;
 
-/******************************************************************************
- *  Compilation:  javac DepthFirstDirectedPaths.java
- *  Execution:    java DepthFirstDirectedPaths digraph.txt s
- *  Dependencies: Digraph.java Stack.java
- *  Data files:   https://algs4.cs.princeton.edu/42digraph/tinyDG.txt
- *                https://algs4.cs.princeton.edu/42digraph/mediumDG.txt
- *                https://algs4.cs.princeton.edu/42digraph/largeDG.txt
- *
- *  Determine reachability in a digraph from a given vertex using
- *  depth-first search.
- *  Runs in O(E + V) time.
- *
- *  % java DepthFirstDirectedPaths tinyDG.txt 3
- *  3 to 0:  3-5-4-2-0
- *  3 to 1:  3-5-4-2-0-1
- *  3 to 2:  3-5-4-2
- *  3 to 3:  3
- *  3 to 4:  3-5-4
- *  3 to 5:  3-5
- *  3 to 6:  not connected
- *  3 to 7:  not connected
- *  3 to 8:  not connected
- *  3 to 9:  not connected
- *  3 to 10:  not connected
- *  3 to 11:  not connected
- *  3 to 12:  not connected
- *
- ******************************************************************************/
-
 /**
- *  The {@code DepthFirstDirectedPaths} class represents a data type for finding
- *  directed paths from a source vertex <em>s</em> to every
- *  other vertex in the digraph.
- *  <p>
- *  This implementation uses depth-first search.
- *  The constructor takes time proportional to <em>V</em> + <em>E</em>,
- *  where <em>V</em> is the number of vertices and <em>E</em> is the number of edges.
- *  Each call to {@link #hasPathTo(int)} takes constant time;
- *  each call to {@link #pathTo(int)} takes time proportional to the length
- *  of the path returned.
- *  It uses extra space (not including the graph) proportional to <em>V</em>.
- *  <p>
- *  See {@link DepthFirstDirectedPaths} for a nonrecursive implementation.
- *  For additional documentation,  
- *  see <a href="https://algs4.cs.princeton.edu/42digraph">Section 4.2</a> of  
- *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne. 
- *
  *  @author Robert Sedgewick
  *  @author Kevin Wayne
+ *  @author Charles Zhang
+ *  @see Algorithms 4th Edition Robert Sedgewick | Kevin Wayne
  */
+
 import ADTs.Stack;
 public class DepthFirstDirectedPaths {
     private boolean[] marked;  // marked[v] = true iff v is reachable from s

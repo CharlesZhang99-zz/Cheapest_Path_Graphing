@@ -6,8 +6,8 @@ import java.util.NoSuchElementException;
 /**
  *  @author Robert Sedgewick
  *  @author Kevin Wayne
- *
- *  @param <Item> the generic type of an item in this bag
+ *  @author Charles Zhang
+ *  @see Algorithms 4th Edition Robert Sedgewick | Kevin Wayne
  */
 public class Bag<Item> implements Iterable<Item> {
     private Node<Item> first;    // beginning of bag

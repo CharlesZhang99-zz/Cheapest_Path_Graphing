@@ -8,6 +8,8 @@ import ADTs.Stack;
 /**
  *  @author Robert Sedgewick
  *  @author Kevin Wayne
+ *  @author Charles Zhang
+ *  @see Algorithms 4th Edition Robert Sedgewick | Kevin Wayne
  */
 
 public class Digraph {

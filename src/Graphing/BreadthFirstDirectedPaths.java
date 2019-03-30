@@ -32,7 +32,10 @@ import ADTs.Stack;
 /**
  *  @author Robert Sedgewick
  *  @author Kevin Wayne
+ *  @author Charles Zhang
+ *  @see Algorithms 4th Edition Robert Sedgewick | Kevin Wayne
  */
+
 public class BreadthFirstDirectedPaths {
     private static final int INFINITY = Integer.MAX_VALUE;
     private boolean[] marked;  // marked[v] = is there an s->v path?

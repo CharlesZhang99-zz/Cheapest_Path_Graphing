@@ -9,7 +9,9 @@ import org.junit.Test;
 import Graphing.BreadthFirstDirectedPaths;
 import Graphing.DepthFirstDirectedPaths;
 import Graphing.Digraph;
-
+/**
+ *  @author Charles Zhang
+ */
 public class BFSDFSTest {
 	
 
@@ -24,6 +26,7 @@ public class BFSDFSTest {
 	public void setUp() throws Exception {
 		Read read = new Read();
 		CityRestaurants rest = new CityRestaurants();
+		//add all connections to as edges in the graph
 		for (int i = 0; i < read.connections.length; i++) {			
 			g.addEdge(read.cityToNum(read.connections[i][0]), 
 					read.cityToNum(read.connections[i][1]));		
@@ -37,14 +40,9 @@ public class BFSDFSTest {
 	public void tearDown() throws Exception {
 	}
 
-	@Test
-	public void test() {
-		//fail("Not yet implemented");
-	}
 	
 	@Test
 	public void testBFS() {
-		System.out.println(g.toString());
 		//iterate through all cities to see if theres a path from Boston to all other cities
 		for (int i = 1; i < 32; i++) {
 			
@@ -64,17 +62,12 @@ public class BFSDFSTest {
 			}
 			//check if every path is correct
 			assert(isRoute == bfs.hasPathTo(i));
-//			System.out.print("isRoute: ");
-//			System.out.println(isRoute);
-//			System.out.print("hashPathTo: ");
-//			System.out.println(bfs.hasPathTo(i));
-//			System.out.println(bfs.pathTo(i));
 		}
 	}
 	
 	@Test
 	public void testDFS() {
-		System.out.println(g.toString());
+
 		//iterate through all cities to see if theres a path from Boston to all other cities
 		for (int i = 1; i < 32; i++) {
 			
@@ -94,11 +87,6 @@ public class BFSDFSTest {
 			}
 			//check if every path is correct
 			assert(isRoute == dfs.hasPathTo(i));
-//			System.out.print("isRoute: ");
-//			System.out.println(isRoute);
-//			System.out.print("hashPathTo: ");
-//			System.out.println(bfs.hasPathTo(i));
-//			System.out.println(bfs.pathTo(i));
 		}
 	}
 

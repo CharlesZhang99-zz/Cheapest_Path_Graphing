@@ -1,0 +1,28 @@
+3.1
+The graph to solve this problem is a weighted digraph. The nodes represent cities and 
+the edges represent the available menu prices. I used a weighted digraph with nodes as 
+cities and the available menu item prices (based off of which restaurant is available 
+in the city travelling to) as edges. I used a modified version Dijkstra’s algorithm to 
+find the “cheapest” path while also making sure the edge it takes travelling from one 
+city to another is not the same weight as the edge from the previous city. This will 
+ensure the travellers won’t eat the same meal twice in a row.
+
+3.2
+BFS will find the shortest path whereas the path DFS finds may not be the shortest. 
+The number of steps to it takes to find a path differs from BFS and DFS. If the vertice 
+is not far (not many nodes in between) from the source then BFS usually finds a path 
+faster whereas if the vertice is far from the source then DFS is usually faster than 
+BFS. Based from the results in Junit, DFS found a path faster which means it found a 
+path is fewer number of steps. This will remain true because as the number of stops 
+increases, DFS will continue to find a path in increasingly less number of steps than 
+BFS.
+
+3.4
+Since I’m using Dijkstra’s algorithm and my weighted digraph uses an adjacency list 
+with a priority queue; the complexity is O((v+e) log v) where v is the number of 
+vertices and e is the number of edges. If the number of cities increases then the 
+complexity will increase because the v in the complexity formula will be bigger. The 
+number of stops will not affect the complexity because it does not change anything in 
+the formula. This means greater number of stops will not increase complexity. If the 
+number of restaurant increases (I’m assuming different restaurants, meaning more menu
+ items) then complexity will increase because the number of edges e increases.

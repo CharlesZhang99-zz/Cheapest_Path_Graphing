@@ -23,12 +23,16 @@ public class Read {
 
 	
 	public Read() throws FileNotFoundException{
+		//read data from data files and sort restaurant longitude
 		readConnections();
 		readUSCities();
 		readRest();
 		sortRestLong();
 		readMenu();
 	}
+	
+	//read data from connectedCities.txt
+	//parse data into a 2d array connections with arrays of [city from, city to]
 	public void readConnections() throws FileNotFoundException {
 		Scanner input = new Scanner(new File("data/connectedCities.txt")).useDelimiter("\\s*\n\\s*");
 		int counter = 0;
@@ -40,6 +44,8 @@ public class Read {
 		input.close();
 	}
 	
+	//read data from USCities.csv
+	//save data to a 2d array with each entry being [city name, lat, long]
 	public void readUSCities() throws FileNotFoundException {
 		Scanner USCities = new Scanner(new File("data/USCities.csv")).useDelimiter("\\s*\n\\s*");
 		int counter = 0;		
@@ -55,6 +61,8 @@ public class Read {
 		USCities.close();
 	}
 	
+	//read data from mcdonalds.csv, burgerking.csv, wendys.csv
+	//save long and lat in their respective 2d arrays
 	public void readRest() throws FileNotFoundException {
 		Scanner mcdonaldsIn = new Scanner(new File("data/mcdonalds.csv")).useDelimiter("\\s*\n\\s*");
 		int counter = 0;
@@ -91,6 +99,8 @@ public class Read {
 		mcdonaldsIn.close();
 	}
 	
+	//read data from menu.csv
+	//parse data into each restaurant's respective 2d arrays with entry format being [price, meal, restaurant]
 	public void readMenu() throws FileNotFoundException {
 		Scanner menuIn = new Scanner(new File("data/menu.csv")).useDelimiter("\\s*\n\\s*");
 		menuIn.nextLine();
@@ -123,18 +133,21 @@ public class Read {
 		
 	}
 	
+	//sorts location arrays of restaurants based on ascending longitudes
 	public void sortRestLong() {
 		Arrays.sort(mcdonalds, (a, b) -> Double.compare(a[0], b[0]));
 		Arrays.sort(burgerking, (a, b) -> Double.compare(a[0], b[0]));
 		Arrays.sort(wendys, (a, b) -> Double.compare(a[0], b[0]));
 	}
 	
+	//helper function that prints out all the connected cities. Only used in testing
 	public void printCitiestxt() {
 		for (int i = 0; i < lines.length; i++) {
 			System.out.println(connections[i][0] + " -> " + connections[i][1]);
 		}
 	}
 	
+	//helper function that prints out all the cities. Only used in testing
 	public void printAllCities() {
 		for (int i = 0; i < cityInfo.length; i++) {
 			System.out.print(i);
@@ -154,13 +167,9 @@ public class Read {
 		return 0;
 	}
 	
-	//given a city, it will return the number associated with it
+	//given a number, it will return the city associated with it
 	public String numToCity(int num) {
 		return cityInfo[num][0];
-	}
-
-	public static void main(String[] args) {
-
 	}
 
 }

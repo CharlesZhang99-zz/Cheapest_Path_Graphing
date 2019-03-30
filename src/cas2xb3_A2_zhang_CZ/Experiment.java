@@ -6,7 +6,15 @@ import java.util.ArrayList;
 import Graphing.BreadthFirstDirectedPaths;
 import Graphing.DepthFirstDirectedPaths;
 import Graphing.Digraph;
+/**
+ *  @author Charles Zhang
+ */
 
+//******************************************************
+//THIS IS JUST FOR EXPERIMENTING. NOT PART OF ASSIGNMENT
+//******************************************************
+
+/*
 public class Experiment {
 	//given a city, it will return the number associated with it
 	public static int cityToNum(String city, String allCities[]) {
@@ -21,12 +29,12 @@ public class Experiment {
 		try {
 			Read read = new Read();
 			
-			/*
+			
 			read.printCitiestxt();
 			System.out.println(read.cityToNum("DENVER"));
 			System.out.println(read.numToCity(12));
 			
-			*/
+			
 			read.printCitiestxt();
 			read.printAllCities();
 			Digraph digraph = new Digraph(32);
@@ -73,3 +81,4 @@ public class Experiment {
 	}
 
 }
+*/

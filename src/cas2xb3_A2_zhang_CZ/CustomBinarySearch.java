@@ -2,6 +2,7 @@ package cas2xb3_A2_zhang_CZ;
 
 
 //modified version of sedgewick pg 8
+//I don't end up using this so ignore this.
 public class CustomBinarySearch {
 	public static int start(float key, float[][] twoArr) {
 		key = (float) (key - 0.5);
